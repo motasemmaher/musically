@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{%block title%}Muiscly{%endblock%}</title>
+    <!-- load the path to your static files-->
+    {%load staticfiles%} 
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'muisc/STYlE123.css'%}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="{% static 'muisc/js/JS123.js'%}"></script>
+
+</head>
+<body> 
+{% csrf_token %}
+    <nav class="navbar navbar-expand-lg navbar-light  bg-dark py-0 ">
+        <a class="navbar-brand" class ="Satisfy" href="{% url 'muisc:index' %} " style="color:rgb(139, 133, 133);">Musically</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="collapse navbar-collapse row a b" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto " >
+                    <li class="nav-item avtive">
+                        <a href="{% url 'muisc:index' %}" class="btn active">
+                            <span><i class="fas fa-compact-disc "></i></span>&nbsp;Albums
+                        </a>                 
+                    </li>
+                    <li class="">
+                        <a href="{%url 'muisc:song'%}" class="btn">
+                            <span><i class="fas fa-music"></i></span>&nbsp;Song
+                        </a>              
+                    </li>
+                    
+                    <form class="form-inline mr-left py-0 my-0" action="#" method="get">
+                        <div class="input-group " id = "serach" >
+                        <input type="search" class="form-control" class ="Serach" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"  id="basic-addon1"><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>  
+                    </form>
+                </ul>
+                    <ul class="navbar-nav mr-right ">
+                        <li class="nav-item"  >
+                            <a href="{% url 'muisc:album-add' %}" class="btn ">
+                               <span><i class="fas fa-plus"></i></span> &nbsp;Add Album 
+                            </a>
+                        </li>
+                        <li class="nav-item setting">
+                            <span style="color:rgb(168, 168, 168);">{{user}}</span>
+                            <a href="#" class="dropdown ">
+                                <a class="pl-3" id="dropdownMenuButton" data-toggle="dropdown" style="color:white;" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu mt-2 bg-dark" id="z" aria-labelledby="dropdownMenuButton">
+                                    <i class="fas fa-caret-up bg-dark" id="b"></i>
+                                    <a href="#" class="btn dropdown-item">My account</a>
+                                    <a href="#" class="btn dropdown-item">Setting</a>
+                                    <a href="{%url 'muisc:logout_user'%}" class="btn dropdown-item">Logout</a>
+                                </div> 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    {%block body%}
+    
+    {%endblock%}   
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'muisc/base.html' %} 
+{%block title%}Detail{%endblock%}
+
+{%block body%}
+    <div class="allSong mt-4">
+        <div id="titleAllSong " class="pl-4"> 
+            <h1 class="py-3 pl-3">All Song</h1>
+            <ul class="row headerSong col-md-12">
+                <li class="Title col-md-5" >Title</li>
+                <li class="Audio_File col-md-2 i">Audio File</li>
+                <li class="Favorite col-md-2 pl-4">Favorite</li>
+                <li class="Actions col-md-2 pl-5">Actions</li>
+            </ul>
+        </div>
+        <div class="pl-4"> 
+            {%for song in all_song%}
+                <label for="{{song}}" class="col-md-5">{{song.song_title}}</label>
+                <label for="{{song}}" class="col-md-2 py-0 px-0"><button type="button" class="btn btn-success px-3 py-1 play" value="{{song.audio_file.url}}"><i class="fas fa-play py-0 px-0"> </i><span class="py-2 px-2 ">play</span></button></label>
+                <label for="{{song}}" class="col-md-2 py-0 px-0"><a href="#" class="btn"><i class="far fa-star"></i></a></label>                                    
+                <label for="{{song}}" class="col-md-2 py-0 pl-0"><a href="#" class="btn btn-danger px-3 py-1"><i class="fas fa-times py-0 px-0"> </i><span class="py-2 px-2">Delete</span> </a></label> 
+                <br>
+            {%endfor%}
+        </div>
+       
+        <div>
+            <audio controls id="Audio">
+                    <source src="" >
+            </audio>
+        </div>
+    </div>
+{%endblock%}

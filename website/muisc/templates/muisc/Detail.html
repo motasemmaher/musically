@@ -1,0 +1,46 @@
+{% extends 'muisc/base.html' %} 
+{%block title%}Detail{%endblock%}
+{%block body%}
+
+
+
+    {%if error_message%}
+        <p><strong>{{error_messagr}}</strong></p>
+    {%endif%}
+    <section class="row" id="body_song">
+
+        <div class="card col-md-3 my-2 ml-2 pr-0 " id="styleCardSong">
+            <img src="{{album.album_logo.url}}" alt="" class="card-img-top img-responsive" >
+            <div class="card-body">
+                <span class="card-title row">
+                    <h2>{{album.album_title}} </h2>
+                    <h4 style=" color:silver;" class="px-2 pt-2">{{album.genre}}</h4>
+                </span>
+                <h3 class="card-text">{{album.artlist}}</h3>
+            </div>
+        </div>
+        <div class="col-md-9 " id="song">
+            <nav class="navbar navbar-light px-0 py-2">
+                <ul class=" nav-navbar  row nav-tabs" id="myTab" role="tablist" >
+                    <li class="nav-item active">
+                        <a class="navbar-brand btn ViewAll v"   href="{% url 'muisc:detail' album.id%}">View All</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="navbar-brand btn AddANewSong m" href="{% url 'muisc:create_song' album.id%}">Add a New Song</a>
+                    </li>
+                </ul>
+                <hr>
+            </nav>
+            <div>
+                    {%block content%}
+                    {%endblock%}
+                </div>
+            </div>    
+        </div>
+    </section>
+    <div>
+            {%block div%}
+            {%endblock%}
+
+    </div>
+{%endblock%} 

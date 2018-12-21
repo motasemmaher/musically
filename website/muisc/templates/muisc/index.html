@@ -1,0 +1,36 @@
+{% extends 'muisc/base.html'%} 
+
+{%block body%}
+<div class="">
+    <div class="col-md-12">
+  
+        <div class="row" id="styleCard" >
+            {%for album in all_album %}
+                <div class="col p-3">
+                    <div class="card">
+                        <img src="{{album.album_logo.url}}" alt="dsddf" class="card-img-top img-responsive" id ="styleInsteImage">
+                        <div class="card-body">
+                            <h5 class="card-title">{{album.album_title}}</h5>
+                            <p class="card-text">{{album.artlist}}</p>
+                            <a href="{% url 'muisc:detail' album.id %}" class="btn btn-primary">View Detail</a>
+                            <a href="#" class="btn btn-outline-secondary"><i class="far fa-star"></i></a>
+                            <a href="#" class="dropdown c">
+                                <a class="pl-3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu  mt-2" aria-labelledby="dropdownMenuButton">
+                                    <i class="fas fa-caret-up" id="x"></i>
+                                   <!-- <a href="{% url 'muisc:album-delete' album.id %}" class="btn btn-outline-secondary dropdown-item"><i class="fas fa-trash-alt"></i> Delet</a>
+                                    --><a href="{% url 'muisc:album-update' album.id%}" class="btn btn-outline-secondary dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+              
+            {%endfor%}
+        </div>
+    </div>
+    
+</div>
+    
+{%endblock%} 
